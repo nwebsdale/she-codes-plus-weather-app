@@ -1,10 +1,8 @@
 a {
   color: #fafafa;
-  display: block;
   font-size: 16px;
   font-weight: 250;
-  margin: 0 auto;
-  padding: 0px;
+  padding: 0px 2px;
 }
 
 a:hover {
@@ -56,6 +54,12 @@ i.location {
 i.location:hover {
   color: #0069d9;
   cursor: pointer;
+}
+
+p {
+  color: #fafafa;
+  font-size: 16px;
+  font-weight: 250;
 }
 
 .container {
@@ -147,8 +151,9 @@ i.location:hover {
   text-align: center;
 }
 
-.units {
-  text-align: center;
+.temp-unit {
+  display: block;
+  margin: 0 auto;
 }
 
 .weather-variables {
