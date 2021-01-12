@@ -82,7 +82,7 @@ function displayWeather(response) {
   );
 
   document.querySelector("#wind-speed").innerHTML = `${Math.round(
-    response.data.wind.speed
+    response.data.wind.speed / 0.62
   )}mph`;
 
   document.querySelector(
