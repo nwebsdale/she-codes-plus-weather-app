@@ -69,36 +69,20 @@ function showPositionWeather(position) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-// Display Current Date/Time
-let currentTimeDate = new Date();
-
-let changeDateTime = document.querySelector("#date-time");
-changeDateTime.innerHTML = formatDate(currentTimeDate);
-
-// Search Feature
-
-let citySearch = document.querySelector("#enter-city-search");
-citySearch.addEventListener("submit", HandleSearch);
-
-search("London");
-
-// Find Location
-
-let locationButton = document.querySelector("#location-finder");
-locationButton.addEventListener("click", getCurrentPosition);
-
 // Display Current Weather
 function displayWeather(response) {
   console.log(response.data);
 
-  document.querySelector("#high-temp").innerHTML = Math.round(
-    response.data.main.temp_max
-  );
+  celsiusTemperatureMax = response.data.main.temp_max;
+  celsiusTemperatureMin = response.data.main.temp_min;
 
-  document.querySelector("#low-temp").innerHTML = Math.round(
-    response.data.main.temp_min
-  );
+  document.querySelector("#high-temp").innerHTML = `${Math.round(
+    celsiusTemperatureMax
+  )}°C`;
 
+  document.querySelector("#low-temp").innerHTML = `${Math.round(
+    celsiusTemperatureMin
+  )}°C`;
   document.querySelector("#wind-speed").innerHTML = `${Math.round(
     response.data.wind.speed / 0.62
   )}mph`;
@@ -197,15 +181,6 @@ function displayWeather(response) {
   if (response.data.weather[0].icon === "50d") {
     fog();
   }
-
-  //   // Fog
-
-  //   if (response.data.weather[0].icon === "50d") {
-  //     mainIcon.setAttribute("class", "");
-  //     mainIcon.classList.add("fas", "fa-smog", "main-icon-cloud");
-  //     background.setAttribute("class", "");
-  //     background.classList.add("background-fog");
-  //   }
 }
 
 function overcastClouds() {
@@ -288,3 +263,61 @@ function fog() {
   background.setAttribute("class", "");
   background.classList.add("background-fog");
 }
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheitTempMax = (celsiusTemperatureMax * 9) / 5 + 32;
+  let fahrenheitTempMin = (celsiusTemperatureMin * 9) / 5 + 32;
+  document.querySelector("#high-temp").innerHTML = `${Math.round(
+    fahrenheitTempMax
+  )}°F`;
+
+  document.querySelector("#low-temp").innerHTML = `${Math.round(
+    fahrenheitTempMin
+  )}°F`;
+
+  fahrenheitBtn.classList.add("active");
+  celsiusBtn.classList.remove("active");
+}
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  document.querySelector("#high-temp").innerHTML = `${Math.round(
+    celsiusTemperatureMax
+  )}°C`;
+  document.querySelector("#low-temp").innerHTML = `${Math.round(
+    celsiusTemperatureMin
+  )}°C`;
+
+  celsiusBtn.classList.add("active");
+  fahrenheitBtn.classList.remove("active");
+}
+
+//Celsius Fahrenheit button
+
+let celsiusTemperatureMax = null;
+let celsiusTemperatureMix = null;
+
+let fahrenheitBtn = document.querySelector("#fahrenheit-button");
+fahrenheitBtn.addEventListener("click", showFahrenheitTemp);
+
+let celsiusBtn = document.querySelector("#celsius-button");
+celsiusBtn.addEventListener("click", showCelsiusTemp);
+
+// Display Current Date/Time
+let currentTimeDate = new Date();
+
+let changeDateTime = document.querySelector("#date-time");
+changeDateTime.innerHTML = formatDate(currentTimeDate);
+
+// Find Location
+
+let locationButton = document.querySelector("#location-finder");
+locationButton.addEventListener("click", getCurrentPosition);
+
+// Search Feature
+
+let citySearch = document.querySelector("#enter-city-search");
+citySearch.addEventListener("submit", HandleSearch);
+
+search("London");

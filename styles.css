@@ -1,14 +1,14 @@
 a {
-  color: #fafafa;
+  color: #007bff;
   font-size: 16px;
   font-weight: 250;
   padding: 0px 2px;
 }
 
-a:hover {
+/* a:hover {
   color: #007bff;
   text-decoration: none;
-}
+} */
 
 h1 {
   color: #ffffff;
@@ -278,6 +278,17 @@ p {
 .temp-unit {
   display: block;
   margin: 0 auto;
+}
+
+.temp-unit .active {
+  cursor: default;
+  color: #fafafa;
+}
+
+.temp-unit .active:hover {
+  color: #fafafa;
+  cursor: default;
+  text-decoration: none;
 }
 
 .weather-type {
