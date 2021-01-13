@@ -20,178 +20,180 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="row search-bar" id="enter-city-search">
-        <div class="col">
-          <form>
-            <div class="row form-inline">
-              <div class="col-10">
-                <input
-                  class="form-control enter-city shadow"
-                  type="text"
-                  placeholder="Enter City"
-                  autofocus="on"
-                  autocomplete="off"
-                  id="city-input"
-                />
+    <div id="container" class="container">
+      <div id="background" class="background">
+        <div class="row search-bar" id="enter-city-search">
+          <div class="col">
+            <form>
+              <div class="row form-inline">
+                <div class="col-10">
+                  <input
+                    class="form-control enter-city shadow"
+                    type="text"
+                    placeholder="Enter City"
+                    autofocus="on"
+                    autocomplete="off"
+                    id="city-input"
+                  />
 
-                <input
-                  class="form-control btn btn-primary search shadow"
-                  type="submit"
-                  value="Search"
-                />
+                  <input
+                    class="form-control btn btn-primary search shadow"
+                    type="submit"
+                    value="Search"
+                  />
+                </div>
+                <div class="col-2">
+                  <i
+                    class="fas fa-search-location location"
+                    id="location-finder"
+                  ></i>
+                </div>
               </div>
-              <div class="col-2">
-                <i
-                  class="fas fa-search-location location"
-                  id="location-finder"
-                ></i>
+            </form>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <h1 id="location"></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h3>Last updated: <span id="date-time"></span></h3>
+          </div>
+        </div>
+
+        <div class="row align-items-center">
+          <div class="col-6">
+            <i id="main-icon"></i>
+          </div>
+          <div class="col-6">
+            <p class="row temp">
+              <strong><span id="high-temp"></span>°C</strong>
+            </p>
+
+            <p class="row temp"><span id="low-temp"></span>°C</p>
+
+            <div class="row">
+              <div class="temp-unit">
+                <p>
+                  <a id="celsius-button" href="#">°C</a> |
+                  <a id="fahrenheit-button" href="#">°F</a>
+                </p>
               </div>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-12">
-          <h1 id="location"></h1>
+        <div class="row">
+          <div class="col-12">
+            <h2 id="weather-type"></h2>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <h3 id="date-time"></h3>
+
+        <div class="row weather-variables">
+          <div class="col-4">
+            <strong>Wind Speed</strong>
+            <br />
+            <i class="fas fa-wind wind"></i>
+            <p id="wind-speed"></p>
+          </div>
+          <div class="col-4">
+            <strong>Sunrise/set</strong>
+            <br />
+            <i class="far fa-sun sunrise"></i>
+            <p><span id="sun-up"></span> <br />15:57</p>
+          </div>
+          <div class="col-4">
+            <strong>Humidity</strong>
+            <br />
+            <i class="fas fa-tint humidity"></i>
+            <p id="humidity"></p>
+          </div>
         </div>
-      </div>
-
-      <div class="row align-items-center">
-        <div class="col-6">
-          <i class="fas fa-cloud main-icon"></i>
-        </div>
-        <div class="col-6">
-          <p class="row temp">
-            <strong><span id="high-temp"></span>°C</strong>
-          </p>
-
-          <p class="row temp"><span id="low-temp"></span>°C</p>
-
-          <div class="row">
-            <div class="temp-unit">
-              <p>
-                <a id="celsius-button" href="#">°C</a> |
-                <a id="fahrenheit-button" href="#">°F</a>
-              </p>
+        <div class="row next-week">
+          <div class="border-right col days">
+            <p>Mon</p>
+            <div class="row next-week-variables">
+              <div class="col-6 next-week-icon">
+                <i class="fas fa-cloud"></i>
+              </div>
+              <div class="col-6 next-week-text">
+                <p>
+                  <strong>4°C</strong>
+                </p>
+                <p>0°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="border-right col days">
+            <p>Tue</p>
+            <div class="row next-week-variables">
+              <div class="col-6 next-week-icon">
+                <i class="fas fa-cloud-sun"></i>
+              </div>
+              <div class="col-6 next-week-text">
+                <p>
+                  <strong>6°C</strong>
+                </p>
+                <p>2°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="border-right col days">
+            <p>Wed</p>
+            <div class="row next-week-variables">
+              <div class="col-6 next-week-icon">
+                <i class="fas fa-cloud-sun"></i>
+              </div>
+              <div class="col-6 next-week-text">
+                <p>
+                  <strong>7°C</strong>
+                </p>
+                <p>4°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="border-right col days">
+            <p>Thu</p>
+            <div class="row next-week-variables">
+              <div class="col-6 next-week-icon">
+                <i class="fas fa-cloud-rain"></i>
+              </div>
+              <div class="col-6 next-week-text">
+                <p>
+                  <strong>8°C</strong>
+                </p>
+                <p>6°C</p>
+              </div>
+            </div>
+          </div>
+          <div class="col days">
+            <p>Fri</p>
+            <div class="row next-week-variables">
+              <div class="col-6 next-week-icon">
+                <i class="fas fa-cloud-rain"></i>
+              </div>
+              <div class="col-6 next-week-text">
+                <p>
+                  <strong>9°C</strong>
+                </p>
+                <p>6°C</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <h2 id="weather-type"></h2>
+        <div class="footer">
+          <a
+            class="open-source"
+            href="https://github.com/nwebsdale/SheCodesWk6"
+            target="_blank"
+          >
+            Open-source code</a
+          >
+          <p>by Natasha Websdale</p>
         </div>
-      </div>
-
-      <div class="row weather-variables">
-        <div class="col-4">
-          <strong>Wind Speed</strong>
-          <br />
-          <i class="fas fa-wind wind"></i>
-          <p id="wind-speed"></p>
-        </div>
-        <div class="col-4">
-          <strong>Sunrise/set</strong>
-          <br />
-          <i class="far fa-sun sunrise"></i>
-          <p>07:49 <br />15:57</p>
-        </div>
-        <div class="col-4">
-          <strong>Humidity</strong>
-          <br />
-          <i class="fas fa-tint humidity"></i>
-          <p id="humidity"></p>
-        </div>
-      </div>
-      <div class="row next-week">
-        <div class="border-right col days">
-          <p>Mon</p>
-          <div class="row next-week-variables">
-            <div class="col-6 next-week-icon">
-              <i class="fas fa-cloud"></i>
-            </div>
-            <div class="col-6 next-week-text">
-              <p>
-                <strong>4°C</strong>
-              </p>
-              <p>0°C</p>
-            </div>
-          </div>
-        </div>
-        <div class="border-right col days">
-          <p>Tue</p>
-          <div class="row next-week-variables">
-            <div class="col-6 next-week-icon">
-              <i class="fas fa-cloud-sun"></i>
-            </div>
-            <div class="col-6 next-week-text">
-              <p>
-                <strong>6°C</strong>
-              </p>
-              <p>2°C</p>
-            </div>
-          </div>
-        </div>
-        <div class="border-right col days">
-          <p>Wed</p>
-          <div class="row next-week-variables">
-            <div class="col-6 next-week-icon">
-              <i class="fas fa-cloud-sun"></i>
-            </div>
-            <div class="col-6 next-week-text">
-              <p>
-                <strong>7°C</strong>
-              </p>
-              <p>4°C</p>
-            </div>
-          </div>
-        </div>
-        <div class="border-right col days">
-          <p>Thu</p>
-          <div class="row next-week-variables">
-            <div class="col-6 next-week-icon">
-              <i class="fas fa-cloud-rain"></i>
-            </div>
-            <div class="col-6 next-week-text">
-              <p>
-                <strong>8°C</strong>
-              </p>
-              <p>6°C</p>
-            </div>
-          </div>
-        </div>
-        <div class="col days">
-          <p>Fri</p>
-          <div class="row next-week-variables">
-            <div class="col-6 next-week-icon">
-              <i class="fas fa-cloud-rain"></i>
-            </div>
-            <div class="col-6 next-week-text">
-              <p>
-                <strong>9°C</strong>
-              </p>
-              <p>6°C</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer">
-        <a
-          class="open-source"
-          href="https://github.com/nwebsdale/SheCodesWk6"
-          target="_blank"
-        >
-          Open-source code</a
-        >
-        <p>by Natasha Websdale</p>
       </div>
     </div>
 

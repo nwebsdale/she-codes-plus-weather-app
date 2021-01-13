@@ -69,10 +69,87 @@ p {
       rgba(0, 0, 0, 0.3)
     ),
     url(media/cloudy2.png);
-  border: 2px solid #949ba9;
   border-radius: 4px;
   margin-top: 10px;
   max-width: 400px;
+  padding: 0px;
+}
+
+.background-bolt {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.01),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(https://images.unsplash.com/photo-1429552077091-836152271555?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8dGh1bmRlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60);
+  max-width: 400px;
+  padding: 10px;
+}
+
+.background-clear-day {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.01),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&h=750&w=1260);
+  max-width: 400px;
+  padding: 10px;
+}
+
+.background-clear-night {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.01),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(https://images.unsplash.com/photo-1505673542670-a5e3ff5b14a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1268&q=80);
+  max-width: 400px;
+  padding: 10px;
+}
+
+.background-drizzle {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.01),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(https://images.pexels.com/photos/414659/pexels-photo-414659.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+  max-width: 400px;
+  padding: 10px;
+}
+
+.background-fog {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.01),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(https://images.unsplash.com/photo-1585651686997-5516bd534e9d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60);
+  max-width: 400px;
+  padding: 10px;
+}
+
+.background-rain {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.01),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixid=MXwxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDF8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60);
+  max-width: 400px;
+  padding: 10px;
+}
+
+.background-snow {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.01),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(https://images.unsplash.com/photo-1516715094483-75da7dee9758?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8c25vd3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60);
+  max-width: 400px;
+  padding: 10px;
 }
 
 .days p {
@@ -97,8 +174,20 @@ p {
   font-weight: 250;
 }
 
-.main-icon {
-  color: #cccccc;
+.main-icon-wet {
+  color: #20558f;
+  font-size: 150px;
+  margin: 20px;
+}
+
+.main-icon-dry {
+  color: #e4c722;
+  font-size: 150px;
+  margin: 20px;
+}
+
+.main-icon-cloud {
+  color: #e2e2e2;
   font-size: 150px;
   margin: 20px;
 }
