@@ -68,6 +68,25 @@ function showPositionWeather(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(displayWeather);
 }
+
+// Display Current Date/Time
+let currentTimeDate = new Date();
+
+let changeDateTime = document.querySelector("#date-time");
+changeDateTime.innerHTML = formatDate(currentTimeDate);
+
+// Search Feature
+
+let citySearch = document.querySelector("#enter-city-search");
+citySearch.addEventListener("submit", HandleSearch);
+
+search("London");
+
+// Find Location
+
+let locationButton = document.querySelector("#location-finder");
+locationButton.addEventListener("click", getCurrentPosition);
+
 // Display Current Weather
 function displayWeather(response) {
   console.log(response.data);
@@ -97,97 +116,175 @@ function displayWeather(response) {
 
   // Update main icon and background image
 
-  let mainIcon = document.querySelector("#main-icon");
-  let background = document.querySelector("#background");
-
   // Cloud
 
-  if (response.data.weather[0].icon === "02d" || "02n" || "03d" || "03n") {
-    mainIcon.setAttribute("class", "");
-    mainIcon.classList.add("fas", "fa-cloud-sun", "main-icon-cloud");
+  if (response.data.weather[0].icon === "04n") {
+    overcastClouds();
   }
 
-  if (response.data.weather[0].icon === "04d" || "04n") {
-    mainIcon.setAttribute("class", "");
-    mainIcon.classList.add("fas", "fa-cloud", "main-icon-cloud");
+  if (response.data.weather[0].icon === "04d") {
+    overcastClouds();
   }
 
-  // Sun
+  if (response.data.weather[0].icon === "02d") {
+    lightClouds();
+  }
+
+  if (response.data.weather[0].icon === "02n") {
+    lightClouds();
+  }
+
+  if (response.data.weather[0].icon === "03d") {
+    lightClouds();
+  }
+
+  if (response.data.weather[0].icon === "03n") {
+    lightClouds();
+  }
+
+  //   Clear sky
 
   if (response.data.weather[0].icon === "01d") {
-    mainIcon.setAttribute("class", "");
-    mainIcon.classList.add("fas", "fa-sun", "main-icon-dry");
-    background.setAttribute("class", "");
-    background.classList.add("background-clear-day");
+    clearSky();
   }
 
   if (response.data.weather[0].icon === "01n") {
-    mainIcon.setAttribute("class", "");
-    mainIcon.classList.add("fas", "fa-moon", "main-icon-cloud");
-    background.setAttribute("class", "");
-    background.classList.add("background-clear-night");
+    clearNight();
   }
 
   // Thunderstorm
 
   if (response.data.weather[0].icon === "11d") {
-    mainIcon.setAttribute("class", "");
-    mainIcon.classList.add("fas", "fa-bolt", "main-icon-wet");
-    background.setAttribute("class", "");
-    background.classList.add("background-bolt");
+    storm();
+  }
+
+  if (response.data.weather[0].icon === "11n") {
+    storm();
   }
 
   // Drizzle
 
   if (response.data.weather[0].icon === "09d") {
-    mainIcon.setAttribute("class", "");
-    mainIcon.classList.add("fas", "fa-cloud-rain", "main-icon-wet");
-    background.setAttribute("class", "");
-    background.classList.add("background-drizzle");
+    drizzle();
+  }
+
+  if (response.data.weather[0].icon === "09n") {
+    drizzle();
   }
 
   // Rain
 
   if (response.data.weather[0].icon === "10d") {
-    mainIcon.setAttribute("class", "");
-    mainIcon.classList.add("fas", "fa-cloud-showers-heavy", "main-icon-wet");
-    background.setAttribute("class", "");
-    background.classList.add("background-rain");
+    rain();
   }
 
-  // Snow
+  if (response.data.weather[0].icon === "10n") {
+    rain();
+  }
+
+  if (response.data.weather[0].icon === "13d") {
+    snow();
+  }
 
   if (response.data.weather[0].icon === "13n") {
-    mainIcon.setAttribute("class", "");
-    mainIcon.classList.add("fas", "fa-snowflake", "main-icon-cloud");
-    background.setAttribute("class", "");
-    background.classList.add("background-snow");
+    snow();
   }
 
-  // Fog
+  if (response.data.weather[0].icon === "50n") {
+    fog();
+  }
 
   if (response.data.weather[0].icon === "50d") {
-    mainIcon.setAttribute("class", "");
-    mainIcon.classList.add("fas", "fa-smog", "main-icon-cloud");
-    background.setAttribute("class", "");
-    background.classList.add("background-fog");
+    fog();
   }
+
+  //   // Fog
+
+  //   if (response.data.weather[0].icon === "50d") {
+  //     mainIcon.setAttribute("class", "");
+  //     mainIcon.classList.add("fas", "fa-smog", "main-icon-cloud");
+  //     background.setAttribute("class", "");
+  //     background.classList.add("background-fog");
+  //   }
 }
 
-// Display Current Date/Time
-let currentTimeDate = new Date();
+function overcastClouds() {
+  let mainIcon = document.querySelector("#main-icon");
+  let background = document.querySelector("#background");
+  mainIcon.setAttribute("class", "");
+  mainIcon.classList.add("fas", "fa-cloud", "main-icon-cloud");
+  background.setAttribute("class", "");
+  background.classList.add("background-thick-cloud");
+}
 
-let changeDateTime = document.querySelector("#date-time");
-changeDateTime.innerHTML = formatDate(currentTimeDate);
+function lightClouds() {
+  let mainIcon = document.querySelector("#main-icon");
+  let background = document.querySelector("#background");
+  mainIcon.setAttribute("class", "");
+  mainIcon.classList.add("fas", "fa-cloud-sun", "main-icon-cloud");
+  background.setAttribute("class", "");
+  background.classList.add("background-light-cloud");
+}
 
-// Search Feature
+function clearSky() {
+  let mainIcon = document.querySelector("#main-icon");
+  let background = document.querySelector("#background");
+  mainIcon.setAttribute("class", "");
+  mainIcon.classList.add("fas", "fa-sun", "main-icon-dry");
+  background.setAttribute("class", "");
+  background.classList.add("background-clear-day");
+}
 
-let citySearch = document.querySelector("#enter-city-search");
-citySearch.addEventListener("submit", HandleSearch);
+function clearNight() {
+  let mainIcon = document.querySelector("#main-icon");
+  let background = document.querySelector("#background");
+  mainIcon.setAttribute("class", "");
+  mainIcon.classList.add("fas", "fa-moon", "main-icon-cloud");
+  background.setAttribute("class", "");
+  background.classList.add("background-clear-night");
+}
 
-search("London");
+function storm() {
+  let mainIcon = document.querySelector("#main-icon");
+  let background = document.querySelector("#background");
+  mainIcon.setAttribute("class", "");
+  mainIcon.classList.add("fas", "fa-bolt", "main-icon-wet");
+  background.setAttribute("class", "");
+  background.classList.add("background-bolt");
+}
 
-// Find Location
+function drizzle() {
+  let mainIcon = document.querySelector("#main-icon");
+  let background = document.querySelector("#background");
+  mainIcon.setAttribute("class", "");
+  mainIcon.classList.add("fas", "fa-cloud-rain", "main-icon-wet");
+  background.setAttribute("class", "");
+  background.classList.add("background-drizzle");
+}
 
-let locationButton = document.querySelector("#location-finder");
-locationButton.addEventListener("click", getCurrentPosition);
+function rain() {
+  let mainIcon = document.querySelector("#main-icon");
+  let background = document.querySelector("#background");
+  mainIcon.setAttribute("class", "");
+  mainIcon.classList.add("fas", "fa-cloud-showers-heavy", "main-icon-wet");
+  background.setAttribute("class", "");
+  background.classList.add("background-rain");
+}
+
+function snow() {
+  let mainIcon = document.querySelector("#main-icon");
+  let background = document.querySelector("#background");
+  mainIcon.setAttribute("class", "");
+  mainIcon.classList.add("fas", "fa-snowflake", "main-icon-cloud");
+  background.setAttribute("class", "");
+  background.classList.add("background-snow");
+}
+
+function fog() {
+  let mainIcon = document.querySelector("#main-icon");
+  let background = document.querySelector("#background");
+  mainIcon.setAttribute("class", "");
+  mainIcon.classList.add("fas", "fa-smog", "main-icon-cloud");
+  background.setAttribute("class", "");
+  background.classList.add("background-fog");
+}

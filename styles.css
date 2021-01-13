@@ -63,15 +63,10 @@ p {
 }
 
 .container {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.01),
-      rgba(0, 0, 0, 0.3)
-    ),
-    url(media/cloudy2.png);
   border-radius: 4px;
   margin-top: 10px;
-  max-width: 400px;
+  width: 400px;
+  height: 600px;
   padding: 0px;
 }
 
@@ -81,8 +76,10 @@ p {
       rgba(255, 255, 255, 0.01),
       rgba(0, 0, 0, 0.3)
     ),
-    url(https://images.unsplash.com/photo-1429552077091-836152271555?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8dGh1bmRlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60);
-  max-width: 400px;
+    url(media/bolt.jpg);
+  border-radius: 4px;
+  width: 400px;
+  height: 600px;
   padding: 10px;
 }
 
@@ -92,8 +89,10 @@ p {
       rgba(255, 255, 255, 0.01),
       rgba(0, 0, 0, 0.3)
     ),
-    url(https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&h=750&w=1260);
-  max-width: 400px;
+    url(media/clear-sky.jpg);
+  border-radius: 4px;
+  width: 400px;
+  height: 600px;
   padding: 10px;
 }
 
@@ -103,8 +102,36 @@ p {
       rgba(255, 255, 255, 0.01),
       rgba(0, 0, 0, 0.3)
     ),
-    url(https://images.unsplash.com/photo-1505673542670-a5e3ff5b14a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1268&q=80);
-  max-width: 400px;
+    url(media/clear-night.jpg);
+  border-radius: 4px;
+  width: 400px;
+  height: 600px;
+  padding: 10px;
+}
+
+.background-thick-cloud {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.01),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(media/thick-cloud.jpg);
+  border-radius: 4px;
+  width: 400px;
+  height: 600px;
+  padding: 10px;
+}
+
+.background-light-cloud {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.01),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(media/light-cloud.jpg);
+  border-radius: 4px;
+  width: 400px;
+  height: 600px;
   padding: 10px;
 }
 
@@ -114,8 +141,10 @@ p {
       rgba(255, 255, 255, 0.01),
       rgba(0, 0, 0, 0.3)
     ),
-    url(https://images.pexels.com/photos/414659/pexels-photo-414659.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
-  max-width: 400px;
+    url(media/drizzle.jpg);
+  border-radius: 4px;
+  width: 400px;
+  height: 600px;
   padding: 10px;
 }
 
@@ -123,11 +152,13 @@ p {
   background-image: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0.01),
-      rgba(0, 0, 0, 0.3)
+      rgba(0, 0, 0, 0.7)
     ),
-    url(https://images.unsplash.com/photo-1585651686997-5516bd534e9d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60);
-  max-width: 400px;
-  padding: 10px;
+    url(media/fog.jpg);
+  border-radius: 4px;
+  width: 400px;
+  height: 600px;
+  padding: 20px;
 }
 
 .background-rain {
@@ -136,8 +167,10 @@ p {
       rgba(255, 255, 255, 0.01),
       rgba(0, 0, 0, 0.3)
     ),
-    url(https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixid=MXwxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDF8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60);
-  max-width: 400px;
+    url(media/rain.jpg);
+  border-radius: 4px;
+  width: 400px;
+  height: 600px;
   padding: 10px;
 }
 
@@ -147,8 +180,10 @@ p {
       rgba(255, 255, 255, 0.01),
       rgba(0, 0, 0, 0.3)
     ),
-    url(https://images.unsplash.com/photo-1516715094483-75da7dee9758?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8c25vd3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60);
-  max-width: 400px;
+    url(media/snow.jpg);
+  border-radius: 4px;
+  width: 400px;
+  height: 600px;
   padding: 10px;
 }
 
@@ -243,6 +278,10 @@ p {
 .temp-unit {
   display: block;
   margin: 0 auto;
+}
+
+.weather-type {
+  text-transform: capitalize;
 }
 
 .weather-variables {
