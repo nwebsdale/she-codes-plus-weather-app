@@ -68,7 +68,7 @@ p {
 .container {
   border-radius: 4px;
   margin-top: 10px;
-  width: 400px;
+  max-width: 400px;
   height: 600px;
   padding: 0px;
 }
@@ -94,7 +94,7 @@ p {
     ),
     url(media/clear-sky.jpg);
   border-radius: 4px;
-  width: 400px;
+  max-width: 400px;
   height: 600px;
   padding: 10px 10px 10px 15px;
 }
@@ -107,7 +107,7 @@ p {
     ),
     url(media/clear-night.jpg);
   border-radius: 4px;
-  width: 400px;
+  max-width: 400px;
   height: 600px;
   padding: 10px 10px 10px 15px;
 }
@@ -133,7 +133,7 @@ p {
     ),
     url(media/light-cloud.jpg);
   border-radius: 4px;
-  width: 400px;
+  max-width: 400px;
   height: 600px;
   padding: 10px 10px 10px 15px;
 }
@@ -146,7 +146,7 @@ p {
     ),
     url(media/drizzle.jpg);
   border-radius: 4px;
-  width: 400px;
+  max-width: 400px;
   height: 600px;
   padding: 10px 10px 10px 15px;
 }
@@ -159,7 +159,7 @@ p {
     ),
     url(media/fog.jpg);
   border-radius: 4px;
-  width: 400px;
+  max-width: 400px;
   height: 600px;
   padding: 10px 10px 10px 15px;
 }
@@ -172,7 +172,7 @@ p {
     ),
     url(media/rain.jpg);
   border-radius: 4px;
-  width: 400px;
+  max-width: 400px;
   height: 600px;
   padding: 10px 10px 10px 15px;
 }
@@ -185,7 +185,7 @@ p {
     ),
     url(media/snow.jpg);
   border-radius: 4px;
-  width: 400px;
+  max-width: 400px;
   height: 600px;
   padding: 10px 10px 10px 15px;
 }
