@@ -47,6 +47,9 @@ function search(city) {
   let unit = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(displayWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function HandleSearch(event) {
@@ -69,9 +72,15 @@ function showPositionWeather(position) {
   axios.get(apiUrl).then(displayWeather);
 }
 
+// Display forecast
+
+function displayForecast(response) {
+  console.log(response.data);
+}
+
 // Display Current Weather
 function displayWeather(response) {
-  console.log(response.data);
+  //   console.log(response.data);
 
   celsiusTemperatureMax = response.data.main.temp_max;
   celsiusTemperatureMin = response.data.main.temp_min;
@@ -187,7 +196,7 @@ function overcastClouds() {
   let mainIcon = document.querySelector("#main-icon");
   let background = document.querySelector("#background");
   mainIcon.setAttribute("class", "");
-  mainIcon.classList.add("fas", "fa-cloud", "main-icon-cloud");
+  mainIcon.classList.add("fas", "fa-cloud", "main-icon");
   background.setAttribute("class", "");
   background.classList.add("background-thick-cloud");
 }
@@ -196,7 +205,7 @@ function lightClouds() {
   let mainIcon = document.querySelector("#main-icon");
   let background = document.querySelector("#background");
   mainIcon.setAttribute("class", "");
-  mainIcon.classList.add("fas", "fa-cloud-sun", "main-icon-cloud");
+  mainIcon.classList.add("fas", "fa-cloud-sun", "main-icon");
   background.setAttribute("class", "");
   background.classList.add("background-light-cloud");
 }
@@ -205,7 +214,7 @@ function clearSky() {
   let mainIcon = document.querySelector("#main-icon");
   let background = document.querySelector("#background");
   mainIcon.setAttribute("class", "");
-  mainIcon.classList.add("fas", "fa-sun", "main-icon-dry");
+  mainIcon.classList.add("fas", "fa-sun", "main-icon");
   background.setAttribute("class", "");
   background.classList.add("background-clear-day");
 }
@@ -214,7 +223,7 @@ function clearNight() {
   let mainIcon = document.querySelector("#main-icon");
   let background = document.querySelector("#background");
   mainIcon.setAttribute("class", "");
-  mainIcon.classList.add("fas", "fa-moon", "main-icon-cloud");
+  mainIcon.classList.add("fas", "fa-moon", "main-icon");
   background.setAttribute("class", "");
   background.classList.add("background-clear-night");
 }
@@ -223,7 +232,7 @@ function storm() {
   let mainIcon = document.querySelector("#main-icon");
   let background = document.querySelector("#background");
   mainIcon.setAttribute("class", "");
-  mainIcon.classList.add("fas", "fa-bolt", "main-icon-wet");
+  mainIcon.classList.add("fas", "fa-bolt", "main-icon");
   background.setAttribute("class", "");
   background.classList.add("background-bolt");
 }
@@ -232,7 +241,7 @@ function drizzle() {
   let mainIcon = document.querySelector("#main-icon");
   let background = document.querySelector("#background");
   mainIcon.setAttribute("class", "");
-  mainIcon.classList.add("fas", "fa-cloud-rain", "main-icon-wet");
+  mainIcon.classList.add("fas", "fa-cloud-rain", "main-icon");
   background.setAttribute("class", "");
   background.classList.add("background-drizzle");
 }
@@ -241,7 +250,7 @@ function rain() {
   let mainIcon = document.querySelector("#main-icon");
   let background = document.querySelector("#background");
   mainIcon.setAttribute("class", "");
-  mainIcon.classList.add("fas", "fa-cloud-showers-heavy", "main-icon-wet");
+  mainIcon.classList.add("fas", "fa-cloud-showers-heavy", "main-icon");
   background.setAttribute("class", "");
   background.classList.add("background-rain");
 }
@@ -250,7 +259,7 @@ function snow() {
   let mainIcon = document.querySelector("#main-icon");
   let background = document.querySelector("#background");
   mainIcon.setAttribute("class", "");
-  mainIcon.classList.add("fas", "fa-snowflake", "main-icon-cloud");
+  mainIcon.classList.add("fas", "fa-snowflake", "main-icon");
   background.setAttribute("class", "");
   background.classList.add("background-snow");
 }
@@ -259,7 +268,7 @@ function fog() {
   let mainIcon = document.querySelector("#main-icon");
   let background = document.querySelector("#background");
   mainIcon.setAttribute("class", "");
-  mainIcon.classList.add("fas", "fa-smog", "main-icon-cloud");
+  mainIcon.classList.add("fas", "fa-smog", "main-icon");
   background.setAttribute("class", "");
   background.classList.add("background-fog");
 }

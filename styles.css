@@ -80,7 +80,7 @@ p {
   border-radius: 4px;
   width: 400px;
   height: 600px;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
 }
 
 .background-clear-day {
@@ -93,7 +93,7 @@ p {
   border-radius: 4px;
   width: 400px;
   height: 600px;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
 }
 
 .background-clear-night {
@@ -106,7 +106,7 @@ p {
   border-radius: 4px;
   width: 400px;
   height: 600px;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
 }
 
 .background-thick-cloud {
@@ -119,7 +119,7 @@ p {
   border-radius: 4px;
   width: 400px;
   height: 600px;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
 }
 
 .background-light-cloud {
@@ -132,7 +132,7 @@ p {
   border-radius: 4px;
   width: 400px;
   height: 600px;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
 }
 
 .background-drizzle {
@@ -145,7 +145,7 @@ p {
   border-radius: 4px;
   width: 400px;
   height: 600px;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
 }
 
 .background-fog {
@@ -158,7 +158,7 @@ p {
   border-radius: 4px;
   width: 400px;
   height: 600px;
-  padding: 20px;
+  padding: 10px 10px 10px 15px;
 }
 
 .background-rain {
@@ -171,7 +171,7 @@ p {
   border-radius: 4px;
   width: 400px;
   height: 600px;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
 }
 
 .background-snow {
@@ -184,7 +184,7 @@ p {
   border-radius: 4px;
   width: 400px;
   height: 600px;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
 }
 
 .days p {
@@ -209,19 +209,7 @@ p {
   font-weight: 250;
 }
 
-.main-icon-wet {
-  color: #20558f;
-  font-size: 150px;
-  margin: 20px;
-}
-
-.main-icon-dry {
-  color: #e4c722;
-  font-size: 150px;
-  margin: 20px;
-}
-
-.main-icon-cloud {
+.main-icon {
   color: #e2e2e2;
   font-size: 150px;
   margin: 20px;
