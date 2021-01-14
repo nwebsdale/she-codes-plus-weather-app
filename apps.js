@@ -1,5 +1,6 @@
-// Display Current Date/Time
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+
   let weekdays = [
     "Sunday",
     "Monday",
@@ -25,6 +26,15 @@ function formatDate(date) {
     "December",
   ];
 
+  let currentDay = weekdays[date.getDay()];
+  let currentDate = date.getDate();
+  let currentMonth = months[date.getMonth()];
+  let currentYear = date.getFullYear();
+  return `${currentDay} ${currentDate} ${currentMonth} ${currentYear}`;
+}
+
+function formatTime(timestamp) {
+  let date = new Date(timestamp);
   let currentHour = date.getHours();
   if (currentHour < 10) {
     currentHour = `0${currentHour}`;
@@ -33,11 +43,41 @@ function formatDate(date) {
   if (currentMin < 10) {
     currentMin = `0${currentMin}`;
   }
-  let currentDay = weekdays[date.getDay()];
-  let currentDate = date.getDate();
-  let currentMonth = months[date.getMonth()];
-  let currentYear = date.getFullYear();
-  return `${currentHour}:${currentMin} | ${currentDay} ${currentDate} ${currentMonth} ${currentYear}`;
+  return `${currentHour}:${currentMin}`;
+}
+
+//Format Sunrise
+
+function formatSunrise(timestamp) {
+  let date = new Date(timestamp);
+
+  let currentHour = date.getHours();
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+  let currentMin = date.getMinutes();
+  if (currentMin < 10) {
+    currentMin = `0${currentMin}`;
+  }
+
+  return `${currentHour}:${currentMin}`;
+}
+
+//Format Sunset
+
+function formatSunset(timestamp) {
+  let date = new Date(timestamp);
+
+  let currentHour = date.getHours();
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+  let currentMin = date.getMinutes();
+  if (currentMin < 10) {
+    currentMin = `0${currentMin}`;
+  }
+
+  return `${currentHour}:${currentMin}`;
 }
 
 // Search Feature
@@ -80,7 +120,7 @@ function displayForecast(response) {
 
 // Display Current Weather
 function displayWeather(response) {
-  //   console.log(response.data);
+  console.log(response.data);
 
   celsiusTemperatureMax = response.data.main.temp_max;
   celsiusTemperatureMin = response.data.main.temp_min;
@@ -106,6 +146,22 @@ function displayWeather(response) {
   let cityName = response.data.name;
   let country = response.data.sys.country;
   document.querySelector("#location").innerHTML = `${cityName}, ${country}`;
+
+  document.querySelector("#date").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
+
+  document.querySelector("#time").innerHTML = formatTime(
+    response.data.dt * 1000
+  );
+
+  document.querySelector("#sun-up").innerHTML = formatSunrise(
+    response.data.sys.sunrise * 1000
+  );
+
+  document.querySelector("#sun-down").innerHTML = formatSunset(
+    response.data.sys.sunset * 1000
+  );
 
   // Update main icon and background image
 
@@ -312,12 +368,6 @@ fahrenheitBtn.addEventListener("click", showFahrenheitTemp);
 
 let celsiusBtn = document.querySelector("#celsius-button");
 celsiusBtn.addEventListener("click", showCelsiusTemp);
-
-// Display Current Date/Time
-let currentTimeDate = new Date();
-
-let changeDateTime = document.querySelector("#date-time");
-changeDateTime.innerHTML = formatDate(currentTimeDate);
 
 // Find Location
 
