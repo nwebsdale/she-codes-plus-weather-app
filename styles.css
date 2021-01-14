@@ -120,7 +120,7 @@ p {
     ),
     url(media/thick-cloud.jpg);
   border-radius: 4px;
-  width: 400px;
+  max-width: 400px;
   height: 600px;
   padding: 10px 10px 10px 15px;
 }
