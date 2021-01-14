@@ -33,7 +33,16 @@ function formatDate(timestamp) {
   return `${currentDay} ${currentDate} ${currentMonth} ${currentYear}`;
 }
 
-function formatTime(timestamp) {
+function formatDay(timestamp) {
+  let date = new Date(timestamp);
+
+  let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let currentDay = weekdays[date.getDay()];
+  return `${currentDay} | ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
   let date = new Date(timestamp);
   let currentHour = date.getHours();
   if (currentHour < 10) {
@@ -115,13 +124,108 @@ function showPositionWeather(position) {
 // Display forecast
 
 function displayForecast(response) {
+  let forecastElement = document.querySelector("#next-week");
+  let forecast = response.data.list[0];
+
   console.log(response.data);
+
+  forecastElement.innerHTML = `
+    <div class="border-right col days">
+            <p>${formatDay(forecast.dt * 1000)}</p>
+            <div class="row next-week-variables">
+              <div class="col-6">
+              <img src="https://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"/>
+                
+              </div>
+              <div class="col-6 next-week-text">
+                <p>
+                  <strong>${Math.round(forecast.main.temp_max)}°C</strong>
+                </p>
+                <p>${Math.round(forecast.main.temp_min)}°C</p>
+              </div>
+            </div>
+          </div>`;
+
+  forecast = response.data.list[8];
+  forecastElement.innerHTML = forecastElement.innerHTML += `<div class="border-right col days">
+            <p>${formatDay(forecast.dt * 1000)}</p>
+            <div class="row next-week-variables">
+              <div class="col-6">
+              <img src="https://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"/>
+                
+              </div>
+              <div class="col-6 next-week-text">
+                <p>
+                  <strong>${Math.round(forecast.main.temp_max)}°C</strong>
+                </p>
+                <p>${Math.round(forecast.main.temp_min)}°C</p>
+              </div>
+            </div>
+          </div>`;
+  forecast = response.data.list[16];
+  forecastElement.innerHTML = forecastElement.innerHTML += `<div class="border-right col days">
+            <p>${formatDay(forecast.dt * 1000)}</p>
+            <div class="row next-week-variables">
+              <div class="col-6">
+              <img src="https://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"/>
+                
+              </div>
+              <div class="col-6 next-week-text">
+                <p>
+                  <strong>${Math.round(forecast.main.temp_max)}°C</strong>
+                </p>
+                <p>${Math.round(forecast.main.temp_min)}°C</p>
+              </div>
+            </div>
+          </div>`;
+
+  forecast = response.data.list[24];
+  forecastElement.innerHTML = forecastElement.innerHTML += `<div class="border-right col days">
+            <p>${formatDay(forecast.dt * 1000)}</p>
+            <div class="row next-week-variables">
+              <div class="col-6">
+              <img src="https://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"/>
+                
+              </div>
+              <div class="col-6 next-week-text">
+                <p>
+                  <strong>${Math.round(forecast.main.temp_max)}°C</strong>
+                </p>
+                <p>${Math.round(forecast.main.temp_min)}°C</p>
+              </div>
+            </div>
+          </div>`;
+
+  forecast = response.data.list[32];
+  forecastElement.innerHTML = forecastElement.innerHTML += `<div class="border-right col days">
+            <p>${formatDay(forecast.dt * 1000)}</p>
+            <div class="row next-week-variables">
+              <div class="col-6">
+              <img src="https://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"/>
+                
+              </div>
+              <div class="col-6 next-week-text">
+                <p>
+                  <strong>${Math.round(forecast.main.temp_max)}°C</strong>
+                </p>
+                <p>${Math.round(forecast.main.temp_min)}°C</p>
+              </div>
+            </div>
+          </div>`;
 }
 
 // Display Current Weather
 function displayWeather(response) {
-  console.log(response.data);
-
   celsiusTemperatureMax = response.data.main.temp_max;
   celsiusTemperatureMin = response.data.main.temp_min;
 
@@ -151,7 +255,7 @@ function displayWeather(response) {
     response.data.dt * 1000
   );
 
-  document.querySelector("#time").innerHTML = formatTime(
+  document.querySelector("#time").innerHTML = formatHours(
     response.data.dt * 1000
   );
 
