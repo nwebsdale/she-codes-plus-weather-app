@@ -198,8 +198,9 @@ p {
 
 .days p {
   color: #e2e2e2;
-  font-size: 8px;
-  margin-bottom: 5px;
+  font-size: 7px;
+  margin: 0px 0px 5px 0px;
+  padding: 0px;
 }
 .enter-city {
   margin-right: 10px;
