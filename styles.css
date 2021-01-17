@@ -64,7 +64,7 @@ p {
       rgba(255, 255, 255, 0.01),
       rgba(0, 0, 0, 0.3)
     ),
-    url(media/bolt.jpg);
+    url(media/lightening.jpg);
   border-radius: 4px;
   max-width: 400px;
   height: 600px;
@@ -78,7 +78,7 @@ p {
       rgba(255, 255, 255, 0.01),
       rgba(0, 0, 0, 0.3)
     ),
-    url(media/clear-sky.jpg);
+    url(media/blue-sky.jpg);
   border-radius: 4px;
   max-width: 400px;
   height: 600px;
@@ -92,7 +92,7 @@ p {
       rgba(255, 255, 255, 0.01),
       rgba(0, 0, 0, 0.3)
     ),
-    url(media/clear-night.jpg);
+    url(media/night-sky.jpg);
   border-radius: 4px;
   max-width: 400px;
   height: 600px;
@@ -134,7 +134,7 @@ p {
       rgba(255, 255, 255, 0.01),
       rgba(0, 0, 0, 0.3)
     ),
-    url(media/drizzle.jpg);
+    url(media/light-rain.jpg);
   border-radius: 4px;
   max-width: 400px;
   height: 600px;
@@ -252,7 +252,7 @@ p {
 }
 
 .search {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .search-bar {
