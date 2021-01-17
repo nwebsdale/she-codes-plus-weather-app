@@ -134,7 +134,6 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#next-week");
   forecastElement.innerHTML = null;
   let forecast = null;
-
   for (let index = 0; index < 40; index += 8) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
@@ -145,13 +144,16 @@ function displayForecast(response) {
               <img src="https://openweathermap.org/img/wn/${
                 forecast.weather[0].icon
               }@2x.png"/>
-                
               </div>
               <div class="col-6 next-week-text">
                 <p>
-                  <strong>${Math.round(forecast.main.temp_max)}°C</strong>
+                  <strong class="forecast-max">${Math.round(
+                    forecast.main.temp_max
+                  )}°C</strong>
                 </p>
-                <p>${Math.round(forecast.main.temp_min)}°C</p>
+                <p class="forecast-min">${Math.round(
+                  forecast.main.temp_min
+                )}°C</p>
               </div>
             </div>
           </div>`;
@@ -369,16 +371,30 @@ function fog() {
 
 function showFahrenheitTemp(event) {
   event.preventDefault();
+
   let fahrenheitTempMax = (celsiusTemperatureMax * 9) / 5 + 32;
   let fahrenheitTempMin = (celsiusTemperatureMin * 9) / 5 + 32;
   document.querySelector("#high-temp").innerHTML = `${Math.round(
     fahrenheitTempMax
   )}°F`;
-
   document.querySelector("#low-temp").innerHTML = `${Math.round(
     fahrenheitTempMin
   )}°F`;
+  let forecastMax = document.querySelectorAll(".forecast-max");
+  forecastMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    currentTemp = currentTemp.replace("°C", "");
+    item.innerHTML = `${Math.round((currentTemp * 9) / 5 + 32)}°F`;
+  });
+  let forecastMin = document.querySelectorAll(".forecast-min");
+  forecastMin.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    currentTemp = currentTemp.replace("°C", "");
+    item.innerHTML = `${Math.round((currentTemp * 9) / 5 + 32)}°F`;
+  });
 
+  fahrenheitBtn.removeEventListener("click", showFahrenheitTemp);
+  celsiusBtn.addEventListener("click", showCelsiusTemp);
   fahrenheitBtn.classList.add("active");
   celsiusBtn.classList.remove("active");
 }
@@ -391,7 +407,23 @@ function showCelsiusTemp(event) {
   document.querySelector("#low-temp").innerHTML = `${Math.round(
     celsiusTemperatureMin
   )}°C`;
+  let forecastMax = document.querySelectorAll(".forecast-max");
+  forecastMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    currentTemp = currentTemp.replace("°F", "");
+    currentTemp = currentTemp.replace("°C", "");
+    item.innerHTML = `${Math.round(((currentTemp - 32) * 5) / 9)}°C`;
+  });
+  let forecastMin = document.querySelectorAll(".forecast-min");
+  forecastMin.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    currentTemp = currentTemp.replace("°F", "");
+    currentTemp = currentTemp.replace("°C", "");
+    item.innerHTML = `${Math.round(((currentTemp - 32) * 5) / 9)}°C`;
+  });
 
+  fahrenheitBtn.addEventListener("click", showFahrenheitTemp);
+  celsiusBtn.removeEventListener("click", showCelsiusTemp);
   celsiusBtn.classList.add("active");
   fahrenheitBtn.classList.remove("active");
 }
